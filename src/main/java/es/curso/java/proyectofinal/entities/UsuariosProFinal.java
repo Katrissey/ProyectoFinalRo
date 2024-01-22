@@ -29,9 +29,17 @@ public class UsuariosProFinal implements Serializable {
 	@Column (name = "DNI", length = 10, unique = true)
 	private String dni;
 	
-	@Column (name = "SEXO",  = "Hombre, Mujer, Otro")
+	//@Column (name = "SEXO",  = "Hombre, Mujer, Otro")
 	private String sexo;
 	
+	/*
+	 * contraseña con restricciones
+	 * email
+	 * telefono
+	 * fechaNacimiento
+	 * role (administrador o usuario)
+	 * 
+	 */
 	
 	
 }
