@@ -31,6 +31,9 @@ public class UsuariosProFinal implements Serializable {
 	
 	//@Column (name = "SEXO",  = "Hombre, Mujer, Otro")
 	private String sexo;
+
+	
+	
 	
 	/*
 	 * contraseña con restricciones
@@ -41,5 +44,11 @@ public class UsuariosProFinal implements Serializable {
 	 * 
 	 */
 	
+@Override
+public String toString() {
+	return "UsuariosProFinal [id=" + id + ", " + (nombre != null ? "nombre=" + nombre + ", " : "")
+			+ (apellidos != null ? "apellidos=" + apellidos + ", " : "") + (dni != null ? "dni=" + dni + ", " : "")
+			+ (sexo != null ? "sexo=" + sexo : "") + "]";
+}
 	
 }
