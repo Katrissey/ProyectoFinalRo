@@ -35,7 +35,8 @@ public class UsuariosProFinal implements Serializable {
 	
 	
 	
-	/*
+	/*TODO
+	 * 
 	 * contraseña con restricciones
 	 * email
 	 * telefono

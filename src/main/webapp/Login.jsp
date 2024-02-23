@@ -8,7 +8,8 @@
  
 <body>
 	<h1>P¡ÅGINA DE ENLACE AL SERVLET</h1>
-	<a href = "">Enlace al servlet</a>
+	<h3>LOGIN</h3>
+	<a href = "ProyectoFinalRo/ServletLogin">Enlace al servlet</a> <br> <br>
 
 	<form action="" method="post">
 		<label id="label1">Usuario: <input type=text name="usuario"></label> <br>
