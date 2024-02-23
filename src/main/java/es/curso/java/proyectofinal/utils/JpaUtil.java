@@ -5,6 +5,9 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
 public class JpaUtil { 
+	
+	private static EntityManager em;
+	
 //    private static final EntityManagerFactory entityManagerFactory = buildEntityManagerFactory();
 //
 //    private static EntityManagerFactory buildEntityManagerFactory(){
@@ -15,9 +18,18 @@ public class JpaUtil {
 //        return entityManagerFactory.createEntityManager();
 //    }
     
+	public static EntityManager getEM () {
+		
+		return getEM ("ConexionOracleHibernate");
+		
+	}
+	
     public static EntityManager getEM (String persistenceUnit) {
-    	EntityManagerFactory emf = Persistence.createEntityManagerFactory(persistenceUnit);
-    	EntityManager em = emf.createEntityManager(); 
+    	
+    	if (em==null) {
+    			EntityManagerFactory emf = Persistence.createEntityManagerFactory(persistenceUnit);
+    			em = emf.createEntityManager(); 
+    	}
     	
     	return em;
     }
