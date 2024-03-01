@@ -22,7 +22,7 @@
     <persistence-unit name="ConexionOracleHibernate" transaction-type="RESOURCE_LOCAL">
    		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
     	 <!-- entidades o entities -->
-     	 <class></class>
+     	 <class>es.curso.java.proyectofinal.entities.UsuariosProFinal</class>
       	 
          
     
