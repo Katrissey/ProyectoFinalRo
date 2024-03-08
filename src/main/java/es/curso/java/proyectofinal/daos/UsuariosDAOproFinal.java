@@ -41,6 +41,9 @@ public class UsuariosDAOproFinal {
 						usuarioEnum.getMail(), usuarioEnum.getTelefono(),
 						usuarioEnum.getFechaNacimiento(), usuarioEnum.getRoles());
 				em.persist(usuariopf);
+				
+				System.out.println (usuariopf);
+
 			}
 			em.getTransaction().commit();
 
@@ -48,6 +51,7 @@ public class UsuariosDAOproFinal {
 			logger.error("Error al insertar usuarios " + e.getMessage());
 			em.getTransaction().rollback();
 		}
+		
 
 		logger.debug("Termina la carga inicial de datos");
 	}

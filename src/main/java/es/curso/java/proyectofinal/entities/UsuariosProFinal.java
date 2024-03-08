@@ -13,78 +13,75 @@ import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
-//Definimos esta clase como una entidad y le decimos a Hibernate que nos genere una tabla con sus atributos, através de anotaciones
+//Definimos esta clase como una entidad y le decimos a Hibernate que nos genere una tabla con sus atributos, a través de anotaciones
 @Entity
-@Table (name = "TB_USUARIOS_PRO_FINAL")
+@Table(name = "TB_USUARIOS_PRO_FINAL")
 public class UsuariosProFinal implements Serializable {
-	
-//Declaramos las variables de instancia, convirtiéndolas en columnas de la tabla que crea Hibernate al acceder a esta clase.
-	
-	//Establecemos una id como Primary Key, que es obligatorio para el uso de Hibernate y la creación de las tablas a través de dicha heramienta.
-	//Lo hacemos a través de anotaciones también, e este caso, además, generando una secuancia única para esta clase, en vez de una secuencia común para todas las clases del proyecto.
-	@Id
-	@SequenceGenerator (name = "USUARIOGEN", sequenceName = "USUARIO_GEN", initialValue =1, allocationSize = 1)
-	@GeneratedValue (strategy = GenerationType.SEQUENCE, generator = "USUARIOGEN")
-	@Column (name = "ID", nullable = false, updatable = false)
-	private long id;
-	
-	@Column (name = "NOMBRE_USUARIO", length = 40)
-	private String nombre;
-	
-	@Column (name = "APELLIDOS", length = 80)
-	private String apellidos;
-	
-	@Column (name = "DNI", length = 10, unique = true)
-	private String dni;
-	
-	
-	// Enumeración para los tipos de género
-    public enum TipoGenero {
-        MASCULINO,
-        FEMENINO,
-        OTRO
-    }
 
-    @Enumerated(EnumType.STRING)
-	@Column (name = "SEXO")
+//Declaramos las variables de instancia, convirtiéndolas en columnas de la tabla que crea Hibernate al acceder a esta clase.
+
+	// Establecemos una id como Primary Key, que es obligatorio para el uso de
+	// Hibernate y la creación de las tablas a través de dicha heramienta.
+	// Lo hacemos a través de anotaciones también, e este caso, además, generando
+	// una secuancia única para esta clase, en vez de una secuencia común para todas
+	// las clases del proyecto.
+	@Id
+	@SequenceGenerator(name = "USUARIOGEN", sequenceName = "USUARIO_GEN", initialValue = 1, allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "USUARIOGEN")
+	@Column(name = "ID", nullable = false, updatable = false)
+	private long id;
+
+	@Column(name = "NOMBRE_USUARIO", length = 40)
+	private String nombre;
+
+	@Column(name = "APELLIDOS", length = 80)
+	private String apellidos;
+
+	@Column(name = "DNI", length = 10, unique = true)
+	private String dni;
+
+	// Enumeración para los tipos de género
+	public enum TipoGenero {
+		MASCULINO, FEMENINO, OTRO
+	}
+
+//	@Enumerated(EnumType.STRING)
+	@Column(name = "SEXO")
 	private String sexo;
-	
-	@Column (name = "CONTRASEÑA", length = 50, nullable = false)
+
+	@Column(name = "CONTRASEÑA", length = 50, nullable = false)
 //	@Size (min = 8, max = 50)
 //	@Pattern (regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).+$", message = "La contraseña debe contener al menos una letra mayúscula, una minúscula y un número")
 	private String contraseña;
-	
-	@Column (name = "EMAIL", nullable = false)
+
+	@Column(name = "EMAIL", nullable = false)
 	private String email;
-	
-	 @Column (name = "TELÉFONO")
-	 private long telefono;
-	 
-	 @Column(name = "FECHA_NACIMIENTO")
-	 private Date fechaNacimiento;
 
-	 
-	// Enumeración para los tipos de género
-	    public enum TipoRole {
-	        ADMINISTRADOR,
-	        USUARIO,
-	        MODERADOR
-	    }
+	@Column(name = "TELÉFONO")
+	private long telefono;
 
-	@Enumerated(EnumType.STRING)
-	@Column (name = "ROLES") //Administrador, usuario básico o moderador
-	 private String roles;
-	
-	
-	//Generamos todos los constructores, incluido el vacío, indispensable para el buen funcionamiento de hibernate
-    /**
+	@Column(name = "FECHA_NACIMIENTO")
+	private Date fechaNacimiento;
+
+	// Enumeración para los tipos de role
+	public enum TipoRole {
+		ADMINISTRADOR, USUARIO, MODERADOR
+	}
+
+//	@Enumerated(EnumType.STRING)
+	@Column(name = "ROLES") // Administrador, usuario básico o moderador
+	private String roles;
+
+	// Generamos todos los constructores, incluido el vacío, indispensable para el
+	// buen funcionamiento de hibernate
+	/**
 	 * 
 	 */
 	public UsuariosProFinal() {
 		super();
 	}
 
-/**
+	/**
 	 * @param id
 	 * @param role
 	 */
@@ -94,7 +91,7 @@ public class UsuariosProFinal implements Serializable {
 		this.roles = roles;
 	}
 
-/**
+	/**
 	 * @param id
 	 * @param nombre
 	 * @param apellidos
@@ -108,7 +105,7 @@ public class UsuariosProFinal implements Serializable {
 		this.roles = roles;
 	}
 
-/**
+	/**
 	 * @param id
 	 * @param nombre
 	 * @param apellidos
@@ -124,7 +121,7 @@ public class UsuariosProFinal implements Serializable {
 		this.roles = roles;
 	}
 
-/**
+	/**
 	 * @param id
 	 * @param nombre
 	 * @param apellidos
@@ -145,7 +142,7 @@ public class UsuariosProFinal implements Serializable {
 		this.roles = roles;
 	}
 
-/**
+	/**
 	 * @param nombre
 	 * @param apellidos
 	 * @param dni
@@ -157,7 +154,7 @@ public class UsuariosProFinal implements Serializable {
 		this.dni = dni;
 	}
 
-/**
+	/**
 	 * @param nombre
 	 * @param apellidos
 	 * @param fechaNacimiento
@@ -169,7 +166,7 @@ public class UsuariosProFinal implements Serializable {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
-/**
+	/**
 	 * @param nombre
 	 * @param apellidos
 	 * @param dni
@@ -183,7 +180,7 @@ public class UsuariosProFinal implements Serializable {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
-/**
+	/**
 	 * @param nombre
 	 * @param apellidos
 	 * @param dni
@@ -199,7 +196,7 @@ public class UsuariosProFinal implements Serializable {
 		this.roles = roles;
 	}
 
-/**
+	/**
 	 * @param nombre
 	 * @param apellidos
 	 * @param dni
@@ -213,7 +210,7 @@ public class UsuariosProFinal implements Serializable {
 		this.sexo = sexo;
 	}
 
-/**
+	/**
 	 * @param nombre
 	 * @param apellidos
 	 * @param dni
@@ -229,7 +226,7 @@ public class UsuariosProFinal implements Serializable {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
-/**
+	/**
 	 * @param nombre
 	 * @param apellidos
 	 * @param dni
@@ -245,7 +242,7 @@ public class UsuariosProFinal implements Serializable {
 		this.roles = roles;
 	}
 
-/**
+	/**
 	 * @param nombre
 	 * @param apellidos
 	 * @param dni
@@ -268,7 +265,7 @@ public class UsuariosProFinal implements Serializable {
 		this.roles = roles;
 	}
 
-/**
+	/**
 	 * @param nombre
 	 * @param apellidos
 	 * @param dni
@@ -287,7 +284,7 @@ public class UsuariosProFinal implements Serializable {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
-/**
+	/**
 	 * @param nombre
 	 * @param apellidos
 	 * @param dni
@@ -306,7 +303,7 @@ public class UsuariosProFinal implements Serializable {
 		this.roles = roles;
 	}
 
-/**
+	/**
 	 * @param nombre
 	 * @param apellidos
 	 * @param dni
@@ -327,7 +324,7 @@ public class UsuariosProFinal implements Serializable {
 		this.roles = roles;
 	}
 
-/**
+	/**
 	 * @param nombre
 	 * @param apellidos
 	 * @param dni
@@ -350,7 +347,7 @@ public class UsuariosProFinal implements Serializable {
 		this.roles = roles;
 	}
 
-/**
+	/**
 	 * @param nombre
 	 * @param apellidos
 	 * @param dni
@@ -375,7 +372,7 @@ public class UsuariosProFinal implements Serializable {
 		this.roles = roles;
 	}
 
-/**
+	/**
 	 * @param id
 	 * @param nombre
 	 * @param apellidos
@@ -402,160 +399,159 @@ public class UsuariosProFinal implements Serializable {
 		this.roles = roles;
 	}
 
-	//Generamos todos los Getters y Setters para que Hibernate, a través de ellos y del constructor vacío pueda crear objetos
+	// Generamos todos los Getters y Setters para que Hibernate, a través de ellos y
+	// del constructor vacío pueda crear objetos
 
-/**
- * @return the id
- */
-public long getId() {
-	return id;
-}
+	/**
+	 * @return the id
+	 */
+	public long getId() {
+		return id;
+	}
 
-/**
- * @param id the id to set
- */
-public void setId(long id) {
-	this.id = id;
-}
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(long id) {
+		this.id = id;
+	}
 
-/**
- * @return the nombre
- */
-public String getNombre() {
-	return nombre;
-}
+	/**
+	 * @return the nombre
+	 */
+	public String getNombre() {
+		return nombre;
+	}
 
-/**
- * @param nombre the nombre to set
- */
-public void setNombre(String nombre) {
-	this.nombre = nombre;
-}
+	/**
+	 * @param nombre the nombre to set
+	 */
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
 
-/**
- * @return the apellidos
- */
-public String getApellidos() {
-	return apellidos;
-}
+	/**
+	 * @return the apellidos
+	 */
+	public String getApellidos() {
+		return apellidos;
+	}
 
-/**
- * @param apellidos the apellidos to set
- */
-public void setApellidos(String apellidos) {
-	this.apellidos = apellidos;
-}
+	/**
+	 * @param apellidos the apellidos to set
+	 */
+	public void setApellidos(String apellidos) {
+		this.apellidos = apellidos;
+	}
 
-/**
- * @return the dni
- */
-public String getDni() {
-	return dni;
-}
+	/**
+	 * @return the dni
+	 */
+	public String getDni() {
+		return dni;
+	}
 
-/**
- * @param dni the dni to set
- */
-public void setDni(String dni) {
-	this.dni = dni;
-}
+	/**
+	 * @param dni the dni to set
+	 */
+	public void setDni(String dni) {
+		this.dni = dni;
+	}
 
-/**
- * @return the sexo
- */
-public String getSexo() {
-	return sexo;
-}
+	/**
+	 * @return the sexo
+	 */
+	public String getSexo() {
+		return sexo;
+	}
 
-/**
- * @param sexo the sexo to set
- */
-public void setSexo(String sexo) {
-	this.sexo = sexo;
-}
+	/**
+	 * @param sexo the sexo to set
+	 */
+	public void setSexo(String sexo) {
+		this.sexo = sexo;
+	}
 
-/**
- * @return the contraseña
- */
-public String getContraseña() {
-	return contraseña;
-}
+	/**
+	 * @return the contraseña
+	 */
+	public String getContraseña() {
+		return contraseña;
+	}
 
-/**
- * @param contraseña the contraseña to set
- */
-public void setContraseña(String contraseña) {
-	this.contraseña = contraseña;
-}
+	/**
+	 * @param contraseña the contraseña to set
+	 */
+	public void setContraseña(String contraseña) {
+		this.contraseña = contraseña;
+	}
 
-/**
- * @return the email
- */
-public String getEmail() {
-	return email;
-}
+	/**
+	 * @return the email
+	 */
+	public String getEmail() {
+		return email;
+	}
 
-/**
- * @param email the email to set
- */
-public void setEmail(String email) {
-	this.email = email;
-}
+	/**
+	 * @param email the email to set
+	 */
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-/**
- * @return the telefono
- */
-public long getTelefono() {
-	return telefono;
-}
+	/**
+	 * @return the telefono
+	 */
+	public long getTelefono() {
+		return telefono;
+	}
 
-/**
- * @param telefono the telefono to set
- */
-public void setTelefono(long telefono) {
-	this.telefono = telefono;
-}
+	/**
+	 * @param telefono the telefono to set
+	 */
+	public void setTelefono(long telefono) {
+		this.telefono = telefono;
+	}
 
-/**
- * @return the fechaNacimiento
- */
-public Date getFechaNacimiento() {
-	return fechaNacimiento;
-}
+	/**
+	 * @return the fechaNacimiento
+	 */
+	public Date getFechaNacimiento() {
+		return fechaNacimiento;
+	}
 
-/**
- * @param fechaNacimiento the fechaNacimiento to set
- */
-public void setFechaNacimiento(Date fechaNacimiento) {
-	this.fechaNacimiento = fechaNacimiento;
-}
+	/**
+	 * @param fechaNacimiento the fechaNacimiento to set
+	 */
+	public void setFechaNacimiento(Date fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
+	}
 
-/**
- * @return the role
- */
-public String getRoles() {
-	return roles;
-}
+	/**
+	 * @return the role
+	 */
+	public String getRoles() {
+		return roles;
+	}
 
-/**
- * @param role the role to set
- */
-public void setRole(String roles) {
-	this.roles = roles;
-}
-
-@Override
-public String toString() {
-	return "UsuariosProFinal [id=" + id + ", " + (nombre != null ? "nombre=" + nombre + ", " : "")
-			+ (apellidos != null ? "apellidos=" + apellidos + ", " : "") + (dni != null ? "dni=" + dni + ", " : "")
-			+ (sexo != null ? "sexo=" + sexo + ", " : "")
-			+ (contraseña != null ? "contraseña=" + contraseña + ", " : "")
-			+ (email != null ? "email=" + email + ", " : "") + "telefono=" + telefono + ", "
-			+ (fechaNacimiento != null ? "fechaNacimiento=" + fechaNacimiento + ", " : "")
-			+ (roles != null ? "roles=" + roles : "") + "]";
-}
+	/**
+	 * @param role the role to set
+	 */
+	public void setRole(String roles) {
+		this.roles = roles;
+	}
 
 //Sobreescribimos el método "To String", para, en caso de necesitar pintar algún objeto de este tipo, que lo pinte directamente
+	@Override
+	public String toString() {
+		return "UsuariosProFinal [id=" + id + ", " + (nombre != null ? "nombre=" + nombre + ", " : "")
+				+ (apellidos != null ? "apellidos=" + apellidos + ", " : "") + (dni != null ? "dni=" + dni + ", " : "")
+				+ (sexo != null ? "sexo=" + sexo + ", " : "")
+				+ (contraseña != null ? "contraseña=" + contraseña + ", " : "")
+				+ (email != null ? "email=" + email + ", " : "") + "telefono=" + telefono + ", "
+				+ (fechaNacimiento != null ? "fechaNacimiento=" + fechaNacimiento + ", " : "")
+				+ (roles != null ? "roles=" + roles : "") + "]";
+	}
 
-	
 }

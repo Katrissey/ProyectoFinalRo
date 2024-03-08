@@ -10,8 +10,18 @@
   	<description></description>
   	<servlet-class>es.curso.java.proyectofinal.servlets.ServletLogin</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>ServletGestionUsuarios</servlet-name>
+  	<display-name>ServletGestionUsuarios</display-name>
+  	<description></description>
+  	<servlet-class>es.curso.java.proyectofinal.servlets.ServletGestionUsuarios</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>ServletLogin</servlet-name>
   	<url-pattern>/ServletLogin</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ServletGestionUsuarios</servlet-name>
+  	<url-pattern>/ServletGestionUsuarios</url-pattern>
   </servlet-mapping>
 </web-app>

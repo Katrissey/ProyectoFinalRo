@@ -1,0 +1,2 @@
+20:51:56.906 [main] DEBUG es.curso.java.proyectofinal.daos.UsuariosDAOproFinal cargaInicial - Empezando la carga inicial de datos
+20:51:56.912 [main] ERROR es.curso.java.proyectofinal.daos.UsuariosDAOproFinal cargaInicial - Error al insertar usuarios Cannot invoke "jakarta.persistence.EntityManager.getTransaction()" because "es.curso.java.proyectofinal.daos.UsuariosDAOproFinal.em" is null

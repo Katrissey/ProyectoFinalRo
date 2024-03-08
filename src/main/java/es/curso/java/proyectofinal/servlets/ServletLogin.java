@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -21,6 +22,13 @@ public class ServletLogin extends HttpServlet {
     public ServletLogin() {
         // TODO Auto-generated constructor stub
     }
+
+    /**
+	 * @see Servlet#init(ServletConfig)
+	 */
+	public void init(ServletConfig config) throws ServletException {
+		// TODO Auto-generated method stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -55,17 +63,18 @@ public class ServletLogin extends HttpServlet {
 	//También lo escribe eclipse por defecto pero no tenemos por qué usarlo, podemos y debemos emplear nuestro propio código
 	//que será el que verdaderamente realice lo que queremos.
 		
-		if (request.getParameter("Usuario") != null && request.getParameter ("Contraseña") != null) {
-			String usuario = request.getParameter("Usuario");
-			String contraseña = request.getParameter ("Contraseña");
+		if (request.getParameter("usuario") != null && request.getParameter ("contraseña") != null) {
+			String usuario = request.getParameter("usuario");
+			String contraseña = request.getParameter ("contraseña");
 			System.out.println ("Se ha enviado el usuario " + usuario + "\ny la contraseña " + contraseña);
 			//Esto se ve por consola, es tan sólo una traza para nosotros, para comprobar que se ha guardado correctamente.
-			response.getWriter().append("<h3>SE HA INSERTADO CORRECTAMENTE</h3>");
+			response.setContentType ("text/html");
+			response.getWriter().append("<h1 style='color:green'>SE HA INSERTADO CORRECTAMENTE</h1>");
 			
 		} else {
 			System.out.println ("No llega ningún dato");
 			response.setContentType ("text/html");
-			response.getWriter().append("<h2 style='color:red'>HA HABIDO UN ERROR</h2");
+			response.getWriter().append("<h2 style='color:red'>HA HABIDO UN ERROR</h2>");
 			
 		}
 	

@@ -7,15 +7,14 @@
 </head>
  
 <body>
-	<h1>P¡ÅGINA DE ENLACE AL SERVLET</h1>
+	<h1>ENLACE AL SERVLET</h1>
 	<h3>LOGIN</h3>
-	<a href = "ProyectoFinalRo/ServletLogin">Enlace al servlet</a> <br> <br>
+	<a href = "/ProyectoFinalRo/ServletLogin">Enlace al servlet</a> <br> <br>
 
-	<form action="" method="post">
-		<label id="label1">Usuario: <input type=text name="usuario"></label> <br>
-		<label id="label2" for="password1">ContraseÒa:</label>
-		<br> <input type="password" name="password" id="password1">
-		<br> <input type="submit" value="Enviar datos">
+	<form action="/ProyectoFinalRo/ServletLogin" method="post">
+		Usuario: <input type=text name="usuario" id="usuario"> <br>
+		ContraseÒa: <input type="password" name="contraseÒa" id="contraseÒa"> <br>
+		<input type="submit" value="Enviar datos">
 	</form>
     
 </body>
